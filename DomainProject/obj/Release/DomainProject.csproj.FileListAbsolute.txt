@@ -1,0 +1,6 @@
+C:\Users\Agustin\source\repos\Mobious\DomainProject\bin\Release\DomainProject.dll
+C:\Users\Agustin\source\repos\Mobious\DomainProject\bin\Release\DomainProject.pdb
+C:\Users\Agustin\source\repos\Mobious\DomainProject\obj\Release\DomainProject.csprojAssemblyReference.cache
+C:\Users\Agustin\source\repos\Mobious\DomainProject\obj\Release\DomainProject.csproj.CoreCompileInputs.cache
+C:\Users\Agustin\source\repos\Mobious\DomainProject\obj\Release\DomainProject.dll
+C:\Users\Agustin\source\repos\Mobious\DomainProject\obj\Release\DomainProject.pdb

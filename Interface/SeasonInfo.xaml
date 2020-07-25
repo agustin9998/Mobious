@@ -1,0 +1,120 @@
+﻿<UserControl x:Class="Interface.SeasonInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Interface"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="IsTabStop" Value="false"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Border CornerRadius="4" Background="#CE6F03" BorderBrush="#888" BorderThickness="0"  Height="auto" Margin="8,0,-2,0"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition MaxHeight="0"/>
+                    <RowDefinition Height="0.00001*"/>
+                    <RowDefinition MaxHeight="0"/>
+                </Grid.RowDefinitions>
+                <Border Grid.RowSpan="3" CornerRadius="2" Background="Transparent" />
+                <RepeatButton Grid.Row="0" Height="18" Command="ScrollBar.LineUpCommand" Content="M 0 4 L 8 4 L 4 0 Z" />
+                <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="true">
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton Command="ScrollBar.PageUpCommand" Visibility="Collapsed"/>
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb Style="{StaticResource ScrollBarThumb}" Margin="1,0,1,0" Background="#888" BorderBrush="#888" />
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton Command="ScrollBar.PageDownCommand" Visibility="Collapsed"/>
+                    </Track.IncreaseRepeatButton>
+                </Track>
+                <RepeatButton Grid.Row="3" Height="18" Command="ScrollBar.LineDownCommand" Content="M 0 0 L 4 4 L 8 0 Z"/>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="HorizontalScrollBar" TargetType="{x:Type ScrollBar}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="15"/>
+                    <ColumnDefinition Width="0.00001*"/>
+                    <ColumnDefinition MaxWidth="15"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.ColumnSpan="3" CornerRadius="2" Background="#141414"/>
+                <RepeatButton Grid.Column="0" Width="15" Command="ScrollBar.LineLeftCommand" Content="M 4 0 L 4 8 L 0 4 Z" Visibility="Collapsed"/>
+                <Track Name="PART_Track" Grid.Column="1" IsDirectionReversed="False">
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton Command="ScrollBar.PageLeftCommand" Visibility="Collapsed"/>
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb Style="{StaticResource ScrollBarThumb}" Margin="0,1,0,1" Background="#888" BorderBrush="#888"/>
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton Command="ScrollBar.PageRightCommand" Visibility="Collapsed"/>
+                    </Track.IncreaseRepeatButton>
+                </Track>
+                <RepeatButton Grid.Column="3" Width="15" Command="ScrollBar.LineRightCommand" Content="M 0 0 L 4 4 L 0 8 Z" Visibility="Collapsed"/>
+            </Grid>
+        </ControlTemplate>
+        <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Style.Triggers>
+                <Trigger Property="Orientation" Value="Vertical">
+                    <Setter Property="Width" Value="18"/>
+                    <Setter Property="Height" Value="auto" />
+                    <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <ScrollViewer x:Name="Scroll" VerticalScrollBarVisibility="Visible" VirtualizingPanel.ScrollUnit="Pixel">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="SeasonPoster" HorizontalAlignment="Left" Height="282" Margin="20,20,9,11" Width="500" VerticalAlignment="Top" BorderThickness="1" BorderBrush="#854700" CornerRadius="10" RenderTransformOrigin="0.5,0.5" Grid.Row="0">
+                <Border.Background>
+                    <ImageBrush x:Name="ImgPoster" Stretch="fill" ImageSource="{Binding Poster}"/>
+                </Border.Background>
+            </Border>
+            <Border x:Name="PlayBackground" HorizontalAlignment="Left" Height="282" Margin="20,20,9,11" Width="500" VerticalAlignment="Top" CornerRadius="10" RenderTransformOrigin="0.5,0.5" Grid.Row="0" Background="#FF3C3C3C" Opacity="0.5" />
+            <Border HorizontalAlignment="Left" x:Name="BtnPlay" Cursor="Hand" Height="70" Margin="235,10,0,0" Width="70" VerticalAlignment="Center" Background="#CE6F03" CornerRadius="100" Grid.Row="0" MouseLeftButtonUp="OnClickPlay">
+                <Label Content="▶" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="White" FontSize="52" Margin="5,-7,-5,7"/>
+            </Border>
+            <Label x:Name="LblTitle" Content="Label" HorizontalAlignment="Left" Margin="570,20,0,0" VerticalAlignment="Top" Height="76" Width="auto" FontSize="36" Foreground="#FFF1F1F1"/>
+            <TextBox x:Name="TBPlot" SelectedText="none" HorizontalAlignment="Stretch" Height="200" Margin="560,100,20,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFE0E0E0" FontSize="18" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+            <ListBox x:Name="LbEpisodes" SelectionChanged="LbSelectionChanged" ItemsSource="{Binding}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20,50,20,20" Grid.Row="1" Height="auto" Background="{x:Null}" BorderBrush="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" PreviewMouseWheel="HandlePreviewMouseWheel">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid  Cursor="Hand">
+                            <Border HorizontalAlignment="Left" MouseLeftButtonUp="LbSelectionUp" Height="152" Margin="10,20,10,31" Width="270" VerticalAlignment="Top" BorderThickness="1" BorderBrush="#854700" CornerRadius="10" RenderTransformOrigin="0.5,0.5" Grid.Row="0">
+                                <Border.Background>
+                                    <ImageBrush x:Name="ImgPoster" Stretch="fill" ImageSource="{Binding Poster}"/>
+                                </Border.Background>
+                            </Border>
+                            <Label Content="{Binding Title}" MaxWidth="200" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="#FFF7F7F7" FontSize="16" FontFamily="Segoe UI Semilight" Grid.Row="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Border HorizontalAlignment="Stretch" CornerRadius="1" Height="2" VerticalAlignment="Top" Width="auto" Margin="560,88,30,0" BorderBrush="#FFFF8D05" Background="#FFFF8D05"/>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

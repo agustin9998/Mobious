@@ -1,0 +1,14 @@
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\bin\Release\BusinnessLogicProject.dll.config
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\bin\Release\BusinnessLogicProject.dll
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\bin\Release\BusinnessLogicProject.pdb
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\bin\Release\DomainProject.dll
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\bin\Release\Newtonsoft.Json.dll
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\bin\Release\DomainProject.pdb
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\bin\Release\Newtonsoft.Json.xml
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\obj\Release\BusinnessLogicProject.csprojAssemblyReference.cache
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\obj\Release\BusinnessLogicProject.csproj.CoreCompileInputs.cache
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\obj\Release\BusinnessLogicProject.csproj.CopyComplete
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\obj\Release\BusinnessLogicProject.dll
+C:\Users\Agustin\source\repos\Mobious\BusinnessLogicProject\obj\Release\BusinnessLogicProject.pdb
