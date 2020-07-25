@@ -9,7 +9,7 @@ To install the app just download the zip file in the realese section, decompress
 
 ## How to use:
 
-To analyse your movies and shows, you'll need to go to the app's configuration (by clicking the gear on the top-right corner) and add your movies and shows directories. It is recommended to keep movie files and show files in diferent directories, this is to avoid the app confussing movies and shows with the same or similar names.
+To analyse your movies and shows, you'll need to go to the app's configuration (by clicking the gear on the top-right corner) and add your movies and shows directories. It is recommended to keep movie files and show files in diferent directories, this is to avoid the app confusing movies and shows with the same or similar names.
 
 ## Screenshots
 
